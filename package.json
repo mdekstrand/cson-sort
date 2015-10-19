@@ -1,7 +1,7 @@
 {
-  "name": "season",
-  "version": "5.3.0",
-  "description": "CSON utilities",
+  "name": "cson-sort",
+  "version": "0.1.0",
+  "description": "CSON sorting code",
   "licenses": [
     {
       "type": "MIT",
@@ -10,7 +10,8 @@
   ],
   "main": "./lib/cson.js",
   "bin": {
-    "csonc": "./bin/csonc"
+    "csonc": "./bin/csonc",
+    "cson-sort": "./bin/cson-sort"
   },
   "scripts": {
     "prepublish": "grunt clean lint coffee",
@@ -18,15 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/season.git"
+    "url": "https://github.com/mdekstrand/cson-sort.git"
   },
   "bugs": {
-    "url": "https://github.com/atom/season/issues"
+    "url": "https://github.com/mdekstrand/cson-sort/issues"
   },
-  "homepage": "http://atom.github.io/season",
   "keywords": [
     "cson",
-    "json",
     "CoffeeScript"
   ],
   "dependencies": {
