@@ -1,99 +1,24 @@
-# season - CSON Node module [![Build Status](https://travis-ci.org/atom/season.svg?branch=master)](https://travis-ci.org/atom/season)
+# `cson-sort` — sort the contents of a CSON file
 
-Read and write CSON/JSON files seamlessly.
+This package provides a small program, `cson-sort`, that takes CSON data and writes it back out with
+all objects sorted by key.  This is useful as a Git filter to make managing CSON files easier, for
+example in your Atom configuration.
+
+This script is derived from [Season](https://github.com/atom/season).
 
 ## Installing
 
-```sh
-npm install season
-```
+    npm install -g cson-sort
 
-## Building
-  * Clone the repository
-  * Run `npm install`
-  * Run `grunt` to compile the CoffeeScript code
-  * Run `grunt test` to run the specs
+## Setting up Git filter
 
-## Compiling CSON to JSON
+Edit `.git/config` to contain the following:
 
-This module comes with a `csonc` executable that allows you to compile a CSON
-file to JSON.
+    [filter "cson-sort"]
+        clean = cson-sort
 
-To use:
+Set up a `.gitattributes` file to mark files to be filtered:
 
-```sh
-npm install -g season
-echo "this: 'is cson'" > file.cson
-csonc file.cson --output file.json
-cat file.json
-{
-  "this": "is cson"
-}
-```
+    *.cson filter=cson-sort
 
-## Docs
-
-```coffeescript
-CSON = require 'season'
-```
-
-### CSON.setCacheDir(cacheDirectory)
-
-Set the cache directory to use for storing compiled CSON files.
-
-`cacheDirectory` - Root directory path for storing compiled CSON.
-
-### CSON.stringify(object)
-
-Convert the object to a CSON string.
-
-`object` - The object to convert to CSON.
-
-Returns the CSON string representation of the given object.
-
-### CSON.readFile(objectPath, callback)
-
-Read the CSON or JSON object at the given path and return it to the callback
-once it is read and parsed.
-
-`objectPath` - The string path to a JSON or CSON object file.
-
-`callback` - The function to call with the error or object once the path
-             is read and parsed.
-
-### CSON.readFileSync(objectPath)
-
-Synchronous version of `CSON.readFile(objectPath, callback)`.
-
-Returns the object read from the path or throws an error if reading fails.
-
-### CSON.writeFile(objectPath, object, callback)
-
-Write the object to the given path as either JSON or CSON depending on the
-path's extension.
-
-`objectPath` - The string path to a JSON or CSON object file.
-
-`object` - The object to convert to a string and write to the path.
-
-`callback` - The function to with an error object on failures.
-
-### CSON.writeFileSync(objectPath, object)
-
-Synchronous version of `CSON.writeFile(objectPath, object, callback)`
-
-### CSON.isObjectPath(objectPath)
-
-Is the given path a valid object path?
-
-Returns `true` if the path has a `.json` or `.cson` file extension, `false`
-otherwise.
-
-### CSON.resolve(objectPath)
-
-Resolve the path to an existent file that has a `.json` or `.cson` extension.
-
-`objectPath` - The string path to a JSON or CSON object file with or without
-               an extension.
-
-Returns the path to an existent CSON or JSON file or `null` if none found.
+And add and commit your files!
