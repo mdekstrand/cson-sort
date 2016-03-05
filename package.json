@@ -1,13 +1,8 @@
 {
   "name": "cson-sort",
   "version": "0.1.0",
-  "description": "CSON sorting code",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/mdekstrand/cson-sort/raw/master/LICENSE.md"
-    }
-  ],
+  "description": "CSON sorting code",  
+  "license": "MIT",
   "main": "./lib/cson.js",
   "bin": {
     "cson-sort": "./bin/cson-sort"
