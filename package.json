@@ -1,7 +1,7 @@
 {
   "name": "cson-sort",
-  "version": "0.1.0",
-  "description": "CSON sorting code",  
+  "version": "0.1.1",
+  "description": "CSON sorting code",
   "license": "MIT",
   "main": "./lib/cson.js",
   "bin": {
@@ -20,7 +20,8 @@
   },
   "keywords": [
     "cson",
-    "CoffeeScript"
+    "CoffeeScript",
+    "git"
   ],
   "dependencies": {
     "cson-parser": "1.0.9",
